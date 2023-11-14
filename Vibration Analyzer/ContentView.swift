@@ -10,43 +10,50 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+    @Query private var vibData: [VibData]
+    @State private var showingAlert = false
+    @State private var name = ""
+    let formatter = DateFormatter()
+    
+    
+    
     var body: some View {
-        NavigationSplitView {
+        NavigationStack{
             List {
-                ForEach(items) { item in
+                ForEach(vibData) { vibData in
                     NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
+                        DataInputView(vibData: vibData)
                     } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                        Text("\(vibData.dataName)")
                     }
                 }
                 .onDelete(perform: deleteItems)
             }
-#if os(macOS)
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
-#endif
+            .navigationTitle("웨이트밸런싱")
             .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem {
                     EditButton()
                 }
-#endif
                 ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    Button(action: {
+                        showingAlert.toggle()
+                    }, label: {
+                        Label("데이터 생성", systemImage: "plus")
+                    })
+                    .alert("데이터 추가", isPresented: $showingAlert) {
+                        TextField("설비명을 입력하시오.", text: $name)
+                            .autocorrectionDisabled()
+                        Button("확인") { addItem(dataName: name) }
+                        Button("취소", role: .cancel) { }
                     }
                 }
             }
-        } detail: {
-            Text("Select an item")
         }
     }
 
-    private func addItem() {
+    private func addItem(dataName: String) {
         withAnimation {
-            let newItem = Item(timestamp: Date())
+            let newItem = VibData(dataName: dataName)
             modelContext.insert(newItem)
         }
     }
@@ -54,7 +61,7 @@ struct ContentView: View {
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
-                modelContext.delete(items[index])
+                modelContext.delete(vibData[index])
             }
         }
     }
@@ -62,5 +69,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: VibData.self, inMemory: true)
 }
