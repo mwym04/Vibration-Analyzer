@@ -23,6 +23,7 @@ final class VibData {
     var modifyGram: Double
     var modifyPhase: Double
     
+    
     static let pi = Double.pi
     
     init(dataName: String) {

@@ -30,7 +30,6 @@ struct DataInputView: View {
     
     
     var body: some View {
-        NavigationStack {
             ScrollViewReader { scrollView in
                 Form {
                     Section("제목") {
@@ -108,7 +107,6 @@ struct DataInputView: View {
                     }
                 })
             }
-            
             .toolbar {
                 ToolbarItemGroup(placement: .keyboard) {
                     Button("Cancel") {
@@ -139,10 +137,8 @@ struct DataInputView: View {
                     }
                 }
             }
-            
-            /*
-             .navigationTitle("웨이트 밸런싱")
-            NavigationLink(destination: WeightBalancing(viewModel: viewModel)) {
+        
+            NavigationLink(destination: WeightBalancingView(vibData: vibData)) {
                 HStack {
                     Spacer()
                     Text("계산하기")
@@ -154,9 +150,7 @@ struct DataInputView: View {
                 }
                 .background(Color.blue)
             }
-            */
         }
-    }
 }
 
 #Preview {

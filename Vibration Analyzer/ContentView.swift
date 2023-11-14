@@ -13,9 +13,6 @@ struct ContentView: View {
     @Query private var vibData: [VibData]
     @State private var showingAlert = false
     @State private var name = ""
-    let formatter = DateFormatter()
-    
-    
     
     var body: some View {
         NavigationStack{
@@ -24,7 +21,7 @@ struct ContentView: View {
                     NavigationLink {
                         DataInputView(vibData: vibData)
                     } label: {
-                        Text("\(vibData.dataName)")
+                        Text("\(vibData.dataName)    \(vibData.dataDate.formatted())")
                     }
                 }
                 .onDelete(perform: deleteItems)
