@@ -28,12 +28,11 @@ struct DataInputView: View {
         case oneShotPhs
     }
     
-    
     var body: some View {
             ScrollViewReader { scrollView in
                 Form {
-                    Section("제목") {
-                        TextField("제목", text: $vibData.dataName)
+                    Section("설비명") {
+                        TextField("설비명", text: $vibData.dataName)
                             .focused($focusedField, equals: .dataName)
                             .id(Field.dataName)
                             .keyboardType(.alphabet)
@@ -45,43 +44,63 @@ struct DataInputView: View {
                     }
                     
                     Section("0-Shot") {
-                        TextField("진폭", text: $vibData.vibFirst)
-                            .keyboardType(.decimalPad)
-                            .focused($focusedField, equals: .zeroShotAmp)
-                            .id(Field.zeroShotAmp)
-                        TextField("위상", text: $vibData.phsFirst)
-                            .keyboardType(.decimalPad)
-                            .focused($focusedField, equals: .zeroShotPhs)
-                            .id(Field.zeroShotPhs)
+                        HStack {
+                            Text("진폭 :")
+                            TextField("진폭", text: $vibData.vibFirst)
+                                .keyboardType(.decimalPad)
+                                .focused($focusedField, equals: .zeroShotAmp)
+                        }
+                        .id(Field.zeroShotAmp)
+                        HStack {
+                            Text("위상 :")
+                            TextField("위상", text: $vibData.phsFirst)
+                                .keyboardType(.decimalPad)
+                                .focused($focusedField, equals: .zeroShotPhs)
+                        }
+                        .id(Field.zeroShotPhs)
 
                     }
                     
                     Section("웨이트 부착 위치") {
                         HStack {
-                            TextField("웨이트 무게", text: $vibData.weightGram)
-                                .keyboardType(.decimalPad)
-                                .focused($focusedField, equals: .weightGram)
-                                .id(Field.weightGram)
+                            HStack {
+                                Text("무게 :")
+                                TextField("웨이트 무게", text: $vibData.weightGram)
+                                    .keyboardType(.decimalPad)
+                                    .focused($focusedField, equals: .weightGram)
+                            }
+                            .id(Field.weightGram)
 
                         }
-                        TextField("웨이트 부착 위치", text: $vibData.weightPhase)
-                            .keyboardType(.decimalPad)
-                            .focused($focusedField, equals: .weightPhase)
-                            .id(Field.weightPhase)
+                        HStack{
+                            Text("위상 :")
+                            TextField("웨이트 부착 위치", text: $vibData.weightPhase)
+                                .keyboardType(.decimalPad)
+                                .focused($focusedField, equals: .weightPhase)
+                        }
+                        .id(Field.weightPhase)
 
                     }
                     
                     Section("1-Shot") {
-                        TextField("진폭", text: $vibData.vibSecond)
-                            .keyboardType(.decimalPad)
-                            .focused($focusedField, equals: .oneShotAmp)
-                            .id(Field.oneShotAmp)
+                        HStack{
+                            Text("진폭 :")
+                            TextField("진폭", text: $vibData.vibSecond)
+                                .keyboardType(.decimalPad)
+                                .focused($focusedField, equals: .oneShotAmp)
+                        }
+                        .id(Field.oneShotAmp)
 
                         
-                        TextField("위상", text: $vibData.phsSecond)
-                            .keyboardType(.decimalPad)
-                            .focused($focusedField, equals: .oneShotPhs)
-                            .id(Field.oneShotPhs)
+                        HStack {
+                            Text("위상 :")
+                            TextField("위상", text: $vibData.phsSecond)
+                                .keyboardType(.decimalPad)
+                                .focused($focusedField, equals: .oneShotPhs)
+                        }
+                        .id(Field.oneShotPhs)
+
+                        
                     }
                 }
                 .onChange(of: focusedField, {

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		CEB737CB2B0374D60096A14E /* WeightBalancingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB737CA2B0374D60096A14E /* WeightBalancingView.swift */; };
 		CED8AD202B02535000301870 /* Vibration_AnalyzerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8AD1F2B02535000301870 /* Vibration_AnalyzerApp.swift */; };
-		CED8AD222B02535000301870 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8AD212B02535000301870 /* ContentView.swift */; };
+		CED8AD222B02535000301870 /* WeightBalancingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8AD212B02535000301870 /* WeightBalancingMain.swift */; };
 		CED8AD242B02535000301870 /* VibData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8AD232B02535000301870 /* VibData.swift */; };
 		CED8AD262B02535100301870 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED8AD252B02535100301870 /* Assets.xcassets */; };
 		CED8AD2A2B02535100301870 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED8AD292B02535100301870 /* Preview Assets.xcassets */; };
@@ -20,7 +20,7 @@
 		CEB737CA2B0374D60096A14E /* WeightBalancingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightBalancingView.swift; sourceTree = "<group>"; };
 		CED8AD1C2B02535000301870 /* Vibration Analyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vibration Analyzer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED8AD1F2B02535000301870 /* Vibration_AnalyzerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vibration_AnalyzerApp.swift; sourceTree = "<group>"; };
-		CED8AD212B02535000301870 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CED8AD212B02535000301870 /* WeightBalancingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightBalancingMain.swift; sourceTree = "<group>"; };
 		CED8AD232B02535000301870 /* VibData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibData.swift; sourceTree = "<group>"; };
 		CED8AD252B02535100301870 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CED8AD272B02535100301870 /* Vibration_Analyzer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vibration_Analyzer.entitlements; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				CED8AD1F2B02535000301870 /* Vibration_AnalyzerApp.swift */,
-				CED8AD212B02535000301870 /* ContentView.swift */,
+				CED8AD212B02535000301870 /* WeightBalancingMain.swift */,
 				CED8AD302B035C3C00301870 /* DataInputView.swift */,
 				CED8AD232B02535000301870 /* VibData.swift */,
 				CEB737CA2B0374D60096A14E /* WeightBalancingView.swift */,
@@ -149,7 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED8AD312B035C3C00301870 /* DataInputView.swift in Sources */,
-				CED8AD222B02535000301870 /* ContentView.swift in Sources */,
+				CED8AD222B02535000301870 /* WeightBalancingMain.swift in Sources */,
 				CED8AD242B02535000301870 /* VibData.swift in Sources */,
 				CEB737CB2B0374D60096A14E /* WeightBalancingView.swift in Sources */,
 				CED8AD202B02535000301870 /* Vibration_AnalyzerApp.swift in Sources */,

@@ -20,8 +20,10 @@ final class VibData {
     var weightGram: String
     var weightPhase: String
     var isAttatched: Bool
-    var modifyGram: Int
-    var modifyPhase: Int
+    var modifyGram: String
+    var modifyPhase: String
+    var modifyGramValue: Int
+    var modifyPhaseValue: Int
     var massEffect: Double
     var phaseEffect: Double
     var computedMagnitude: Double
@@ -40,8 +42,10 @@ final class VibData {
         self.weightGram = ""
         self.weightPhase = ""
         self.isAttatched = false
-        self.modifyGram = 0
-        self.modifyPhase = 0
+        self.modifyGram = ""
+        self.modifyPhase = ""
+        self.modifyGramValue = 0
+        self.modifyPhaseValue = 0
         self.massEffect = 0.0
         self.phaseEffect = 0.0
         self.computedMagnitude = 0.0
@@ -51,13 +55,10 @@ final class VibData {
     func calculation() {
         
         let pi: Double = Double.pi
-        let x1: Double = (Double(vibFirst) ?? 0)  * (cos((Double(phsFirst) ?? 0) / 180 * pi))
+        let x1: Double = (Double(vibFirst) ?? 0) * (cos((Double(phsFirst) ?? 0) / 180 * pi))
         let y1: Double = (Double(vibFirst) ?? 0) * (sin((Double(phsFirst) ?? 0) / 180 * pi))
         let x2: Double = (Double(vibSecond) ?? 0) * (cos((Double(phsSecond) ?? 0) / 180 * pi))
         let y2: Double = (Double(vibSecond) ?? 0) * (sin((Double(phsSecond) ?? 0) / 180 * pi))
-        let x3: Double = (massEffect * Double(modifyGram) / 100) * cos((phaseEffect + Double(modifyPhase)) / 180 * pi)
-        let y3: Double = (massEffect * Double(modifyGram) / 100) * sin((phaseEffect + Double(modifyPhase)) / 180 * pi)
-        
         
         massEffect = (sqrt(pow(x2 - x1, 2) + pow((y2 - y1), 2))) / (Double(weightGram) ?? 1) * 100
         
@@ -71,7 +72,11 @@ final class VibData {
             }
         }
         
-        computedMagnitude = sqrt(pow((y3 - (isAttatched ? y1 : y2)), 2) + pow(x3 - (isAttatched ? x1 : x2), 2))
-        computedPhase = atan2((y3 - (isAttatched ? y1 : y2)), (x3 - (isAttatched ? x1 : x2))) / pi * 180
+        let x3: Double = (massEffect * (Double(modifyGram) ?? 0) / 100) * cos((phaseEffect + (Double(modifyPhase) ?? 0)) / 180 * pi)
+        let y3: Double = (massEffect * (Double(modifyGram) ?? 0) / 100) * sin((phaseEffect + (Double(modifyPhase) ?? 0)) / 180 * pi)
+
+        computedMagnitude = sqrt(pow((y3 + (isAttatched ? y2 : y1)), 2) + pow(x3 + (isAttatched ? x2 : x1), 2))
+        computedPhase = atan2((y3 + (isAttatched ? y2 : y1)), (x3 + (isAttatched ? x2 : x1))) / pi * 180
+        
     }
 }

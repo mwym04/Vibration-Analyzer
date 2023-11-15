@@ -10,7 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var vibData: [VibData]
+    @Query(sort: [SortDescriptor(\VibData.dataDate)]) private var vibData: [VibData]
     @State private var showingAlert = false
     @State private var name = ""
     
