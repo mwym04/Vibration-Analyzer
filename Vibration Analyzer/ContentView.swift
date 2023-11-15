@@ -45,9 +45,10 @@ struct ContentView: View {
                     }
                 }
             }
+            
         }
     }
-
+    
     private func addItem(dataName: String) {
         withAnimation {
             let newItem = VibData(dataName: dataName)
@@ -62,6 +63,26 @@ struct ContentView: View {
             }
         }
     }
+}
+
+extension View {
+  func navigationBarBackground(_ background: Color = .orange) -> some View {
+    return self
+      .modifier(ColoredNavigationBar(background: background))
+  }
+}
+
+struct ColoredNavigationBar: ViewModifier {
+  var background: Color
+  
+  func body(content: Content) -> some View {
+    content
+      .toolbarBackground(
+        background,
+        for: .navigationBar
+      )
+      .toolbarBackground(.visible, for: .navigationBar)
+  }
 }
 
 #Preview {
