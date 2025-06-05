@@ -19,7 +19,7 @@ struct WBMainView: View {
             List {
                 ForEach(vibData) { vibData in
                     NavigationLink {
-                        DataInputView(vibData: vibData)
+                        DataInputView()
                     } label: {
                         Text("\(vibData.dataName)    \(vibData.dataDate.formatted())")
                     }
@@ -39,7 +39,6 @@ struct WBMainView: View {
                     })
                     .alert("데이터 추가", isPresented: $showingAlert) {
                         TextField("설비명을 입력하시오.", text: $name)
-                            .autocorrectionDisabled()
                         Button("확인") { addItem(dataName: name) }
                         Button("취소", role: .cancel) { }
                     }

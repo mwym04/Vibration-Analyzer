@@ -20,16 +20,22 @@ final class VibData {
     var weightGram: String
     var weightPhase: String
     var isAttatched: Bool
-    var modifyGram: String
-    var modifyPhase: String
-    var modifyGramValue: Int
-    var modifyPhaseValue: Int
+    var modifyGram: Int?
+    var modifyPhase: Int?
+    
+    
+    /*
     var massEffect: Double
     var phaseEffect: Double
     var computedMagnitude: Double
     var computedPhase: Double
-    
-    static let pi = Double.pi
+    var x1: Double
+    var x2: Double
+    var x3: Double
+    var y1: Double
+    var y2: Double
+    var y3: Double
+    */
     
     init(dataName: String) {
         self.id = UUID()
@@ -41,24 +47,30 @@ final class VibData {
         self.phsSecond = ""
         self.weightGram = ""
         self.weightPhase = ""
+        self.modifyGram = 0
+        self.modifyPhase = 0
         self.isAttatched = false
-        self.modifyGram = ""
-        self.modifyPhase = ""
-        self.modifyGramValue = 0
-        self.modifyPhaseValue = 0
+        /*
         self.massEffect = 0.0
         self.phaseEffect = 0.0
         self.computedMagnitude = 0.0
         self.computedPhase = 0.0
+        self.x1 = 0
+        self.x2 = 0
+        self.x3 = 0
+        self.y1 = 0
+        self.y2 = 0
+        self.y3 = 0
+        */
     }
     
-    func calculation() {
+    /* func calculation() {
+        let pi = Double.pi
         
-        let pi: Double = Double.pi
-        let x1: Double = (Double(vibFirst) ?? 0) * (cos((Double(phsFirst) ?? 0) / 180 * pi))
-        let y1: Double = (Double(vibFirst) ?? 0) * (sin((Double(phsFirst) ?? 0) / 180 * pi))
-        let x2: Double = (Double(vibSecond) ?? 0) * (cos((Double(phsSecond) ?? 0) / 180 * pi))
-        let y2: Double = (Double(vibSecond) ?? 0) * (sin((Double(phsSecond) ?? 0) / 180 * pi))
+        x1 = (Double(vibFirst) ?? 0) * (cos((Double(phsFirst) ?? 0) / 180 * pi))
+        y1 = (Double(vibFirst) ?? 0) * (sin((Double(phsFirst) ?? 0) / 180 * pi))
+        x2 = (Double(vibSecond) ?? 0) * (cos((Double(phsSecond) ?? 0) / 180 * pi))
+        y2 = (Double(vibSecond) ?? 0) * (sin((Double(phsSecond) ?? 0) / 180 * pi))
         
         massEffect = (sqrt(pow(x2 - x1, 2) + pow((y2 - y1), 2))) / (Double(weightGram) ?? 1) * 100
         
@@ -72,11 +84,14 @@ final class VibData {
             }
         }
         
-        let x3: Double = (massEffect * (Double(modifyGram) ?? 0) / 100) * cos((phaseEffect + (Double(modifyPhase) ?? 0)) / 180 * pi)
-        let y3: Double = (massEffect * (Double(modifyGram) ?? 0) / 100) * sin((phaseEffect + (Double(modifyPhase) ?? 0)) / 180 * pi)
+        x3 = (massEffect * (Double(modifyGram ?? 0)) / 100) * cos((phaseEffect + (Double(modifyPhase ?? 0))) / 180 * pi)
+        y3 = (massEffect * (Double(modifyGram ?? 0)) / 100) * sin((phaseEffect + (Double(modifyPhase ?? 0))) / 180 * pi)
 
         computedMagnitude = sqrt(pow((y3 + (isAttatched ? y2 : y1)), 2) + pow(x3 + (isAttatched ? x2 : x1), 2))
         computedPhase = atan2((y3 + (isAttatched ? y2 : y1)), (x3 + (isAttatched ? x2 : x1))) / pi * 180
-        
+        while computedPhase < 0 {
+            computedPhase += 360
+        }
     }
+     */
 }

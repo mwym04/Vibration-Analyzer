@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0814382B075EC00019A459 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0814372B075EC00019A459 /* TextFieldView.swift */; };
+		CE536A2F2C5A181000A34F6A /* WBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE536A2E2C5A181000A34F6A /* WBViewModel.swift */; };
+		CE5D35142B04ACF60062A9DA /* WBMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D35132B04ACF60062A9DA /* WBMainView.swift */; };
+		CE5D35192B04AE880062A9DA /* VectorSynthesisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D35182B04AE880062A9DA /* VectorSynthesisView.swift */; };
+		CE5D351D2B04DA420062A9DA /* VectorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D351C2B04DA420062A9DA /* VectorData.swift */; };
+		CE5D351F2B05ED420062A9DA /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D351E2B05ED420062A9DA /* SheetView.swift */; };
+		CE9202242B06E69B0044DA56 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9202232B06E69B0044DA56 /* CustomImageView.swift */; };
 		CEB737CB2B0374D60096A14E /* WeightBalancingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB737CA2B0374D60096A14E /* WeightBalancingView.swift */; };
 		CED8AD202B02535000301870 /* Vibration_AnalyzerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8AD1F2B02535000301870 /* Vibration_AnalyzerApp.swift */; };
-		CED8AD222B02535000301870 /* WeightBalancingMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8AD212B02535000301870 /* WeightBalancingMain.swift */; };
+		CED8AD222B02535000301870 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8AD212B02535000301870 /* Main.swift */; };
 		CED8AD242B02535000301870 /* VibData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED8AD232B02535000301870 /* VibData.swift */; };
 		CED8AD262B02535100301870 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED8AD252B02535100301870 /* Assets.xcassets */; };
 		CED8AD2A2B02535100301870 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED8AD292B02535100301870 /* Preview Assets.xcassets */; };
@@ -17,10 +24,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE0814372B075EC00019A459 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		CE536A2E2C5A181000A34F6A /* WBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBViewModel.swift; sourceTree = "<group>"; };
+		CE5D35132B04ACF60062A9DA /* WBMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBMainView.swift; sourceTree = "<group>"; };
+		CE5D35182B04AE880062A9DA /* VectorSynthesisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorSynthesisView.swift; sourceTree = "<group>"; };
+		CE5D351C2B04DA420062A9DA /* VectorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorData.swift; sourceTree = "<group>"; };
+		CE5D351E2B05ED420062A9DA /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		CE9202232B06E69B0044DA56 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		CEB737CA2B0374D60096A14E /* WeightBalancingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightBalancingView.swift; sourceTree = "<group>"; };
 		CED8AD1C2B02535000301870 /* Vibration Analyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vibration Analyzer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED8AD1F2B02535000301870 /* Vibration_AnalyzerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vibration_AnalyzerApp.swift; sourceTree = "<group>"; };
-		CED8AD212B02535000301870 /* WeightBalancingMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightBalancingMain.swift; sourceTree = "<group>"; };
+		CED8AD212B02535000301870 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		CED8AD232B02535000301870 /* VibData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibData.swift; sourceTree = "<group>"; };
 		CED8AD252B02535100301870 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CED8AD272B02535100301870 /* Vibration_Analyzer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vibration_Analyzer.entitlements; sourceTree = "<group>"; };
@@ -39,6 +53,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE536A302C5A181700A34F6A /* WB ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE536A2E2C5A181000A34F6A /* WBViewModel.swift */,
+			);
+			path = "WB ViewModel";
+			sourceTree = "<group>";
+		};
+		CE5D35162B04AE240062A9DA /* WB Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE5D35132B04ACF60062A9DA /* WBMainView.swift */,
+				CED8AD302B035C3C00301870 /* DataInputView.swift */,
+				CEB737CA2B0374D60096A14E /* WeightBalancingView.swift */,
+				CE5D351E2B05ED420062A9DA /* SheetView.swift */,
+				CE9202232B06E69B0044DA56 /* CustomImageView.swift */,
+				CE0814372B075EC00019A459 /* TextFieldView.swift */,
+			);
+			path = "WB Views";
+			sourceTree = "<group>";
+		};
+		CE5D35172B04AE300062A9DA /* WB Model */ = {
+			isa = PBXGroup;
+			children = (
+				CED8AD232B02535000301870 /* VibData.swift */,
+			);
+			path = "WB Model";
+			sourceTree = "<group>";
+		};
+		CE5D351A2B04D9B70062A9DA /* WeightBalancing */ = {
+			isa = PBXGroup;
+			children = (
+				CE5D35162B04AE240062A9DA /* WB Views */,
+				CE5D35172B04AE300062A9DA /* WB Model */,
+				CE536A302C5A181700A34F6A /* WB ViewModel */,
+			);
+			path = WeightBalancing;
+			sourceTree = "<group>";
+		};
+		CE5D351B2B04DA050062A9DA /* VectorSynthesis */ = {
+			isa = PBXGroup;
+			children = (
+				CE5D35182B04AE880062A9DA /* VectorSynthesisView.swift */,
+				CE5D351C2B04DA420062A9DA /* VectorData.swift */,
+			);
+			path = VectorSynthesis;
+			sourceTree = "<group>";
+		};
 		CED8AD132B02535000301870 = {
 			isa = PBXGroup;
 			children = (
@@ -59,10 +121,9 @@
 			isa = PBXGroup;
 			children = (
 				CED8AD1F2B02535000301870 /* Vibration_AnalyzerApp.swift */,
-				CED8AD212B02535000301870 /* WeightBalancingMain.swift */,
-				CED8AD302B035C3C00301870 /* DataInputView.swift */,
-				CED8AD232B02535000301870 /* VibData.swift */,
-				CEB737CA2B0374D60096A14E /* WeightBalancingView.swift */,
+				CED8AD212B02535000301870 /* Main.swift */,
+				CE5D351B2B04DA050062A9DA /* VectorSynthesis */,
+				CE5D351A2B04D9B70062A9DA /* WeightBalancing */,
 				CED8AD252B02535100301870 /* Assets.xcassets */,
 				CED8AD272B02535100301870 /* Vibration_Analyzer.entitlements */,
 				CED8AD282B02535100301870 /* Preview Content */,
@@ -106,7 +167,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					CED8AD1B2B02535000301870 = {
 						CreatedOnToolsVersion = 15.0.1;
@@ -148,9 +209,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5D35142B04ACF60062A9DA /* WBMainView.swift in Sources */,
+				CE536A2F2C5A181000A34F6A /* WBViewModel.swift in Sources */,
+				CE5D351F2B05ED420062A9DA /* SheetView.swift in Sources */,
 				CED8AD312B035C3C00301870 /* DataInputView.swift in Sources */,
-				CED8AD222B02535000301870 /* WeightBalancingMain.swift in Sources */,
+				CE0814382B075EC00019A459 /* TextFieldView.swift in Sources */,
+				CED8AD222B02535000301870 /* Main.swift in Sources */,
+				CE5D35192B04AE880062A9DA /* VectorSynthesisView.swift in Sources */,
 				CED8AD242B02535000301870 /* VibData.swift in Sources */,
+				CE5D351D2B04DA420062A9DA /* VectorData.swift in Sources */,
+				CE9202242B06E69B0044DA56 /* CustomImageView.swift in Sources */,
 				CEB737CB2B0374D60096A14E /* WeightBalancingView.swift in Sources */,
 				CED8AD202B02535000301870 /* Vibration_AnalyzerApp.swift in Sources */,
 			);
@@ -193,6 +261,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -254,6 +323,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -281,6 +351,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Vibration Analyzer/Vibration_Analyzer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Vibration Analyzer/Preview Content\"";
 				DEVELOPMENT_TEAM = 2L99SBH8W7;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -294,8 +365,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -304,10 +375,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "MW.Vibration-Analyzer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -319,6 +391,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Vibration Analyzer/Vibration_Analyzer.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Vibration Analyzer/Preview Content\"";
 				DEVELOPMENT_TEAM = 2L99SBH8W7;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -332,8 +405,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -342,10 +415,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "MW.Vibration-Analyzer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

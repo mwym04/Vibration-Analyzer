@@ -6,181 +6,124 @@
 //
 
 import SwiftUI
+import Combine
 
 struct DataInputView: View {
     
-    @Bindable var vibData: VibData
-    @FocusState var focusedField: Field?
-    
-    let formatter: NumberFormatter = {
-           let formatter = NumberFormatter()
-           formatter.numberStyle = .decimal
-           return formatter
-       }()
-    
-    enum Field {
-        case dataName
-        case zeroShotAmp
-        case zeroShotPhs
-        case weightGram
-        case weightPhase
-        case oneShotAmp
-        case oneShotPhs
-    }
+    @State var dataName: String = ""
+    @State var vibFirst: String = ""
+    @State var vibSecond: String = ""
+    @State var phsFirst: String = ""
+    @State var phsSecond: String = ""
+    @State var weightGram: String = ""
+    @State var weightPhase: String = ""
     
     var body: some View {
-        ScrollViewReader { scrollView in
-            Form {
-                Section("설비명") {
-                    TextField("설비명", text: $vibData.dataName)
-                        .focused($focusedField, equals: .dataName)
-                        .id(Field.dataName)
-                        .keyboardType(.alphabet)
-                        .autocorrectionDisabled(true)
-                        .submitLabel(.next)
-                        .onSubmit {
-                            focusedField = .zeroShotAmp
-                        }
-                }
-                
-                Section("0-Shot") {
-                    HStack {
-                        Text("진폭 :")
-                        TextField("진폭", text: $vibData.vibFirst)
-                            .keyboardType(.decimalPad)
-                            .focused($focusedField, equals: .zeroShotAmp)
-                    }
-                    .id(Field.zeroShotAmp)
-                    HStack {
-                        Text("위상 :")
-                        TextField("위상", text: $vibData.phsFirst)
-                            .keyboardType(.decimalPad)
-                            .focused($focusedField, equals: .zeroShotPhs)
-                    }
-                    .id(Field.zeroShotPhs)
-
-                }
-                
-                Section("웨이트 부착 위치") {
-                    HStack {
-                        HStack {
-                            Text("무게 :")
-                            TextField("웨이트 무게", text: $vibData.weightGram)
-                                .keyboardType(.decimalPad)
-                                .focused($focusedField, equals: .weightGram)
-                        }
-                        .id(Field.weightGram)
-
-                    }
-                    HStack{
-                        Text("위상 :")
-                        TextField("웨이트 부착 위치", text: $vibData.weightPhase)
-                            .keyboardType(.decimalPad)
-                            .focused($focusedField, equals: .weightPhase)
-                    }
-                    .id(Field.weightPhase)
-
-                }
-                
-                Section("1-Shot") {
-                    HStack{
-                        Text("진폭 :")
-                        TextField("진폭", text: $vibData.vibSecond)
-                            .keyboardType(.decimalPad)
-                            .focused($focusedField, equals: .oneShotAmp)
-                    }
-                    .id(Field.oneShotAmp)
-
-                    
-                    HStack {
-                        Text("위상 :")
-                        TextField("위상", text: $vibData.phsSecond)
-                            .keyboardType(.decimalPad)
-                            .focused($focusedField, equals: .oneShotPhs)
-                    }
-                    .id(Field.oneShotPhs)
-
-                    
-                }
+        Form {
+            Section("설비명") {
+                TextField("설비명", text: $dataName)
+                    .keyboardType(.alphabet)
+                    .autocorrectionDisabled(true)
             }
             
-            
-            
-            .onChange(of: focusedField, {
-                withAnimation {
-                    switch focusedField {
-                    case .dataName:
-                        scrollView.scrollTo(Field.dataName)
-                    case .zeroShotAmp:
-                        scrollView.scrollTo(Field.zeroShotPhs)
-                    case .zeroShotPhs:
-                        scrollView.scrollTo(Field.weightGram)
-                    case .weightGram:
-                        scrollView.scrollTo(Field.weightPhase)
-                    case .weightPhase:
-                        scrollView.scrollTo(Field.oneShotAmp)
-                    case .oneShotAmp:
-                        scrollView.scrollTo(Field.oneShotPhs)
-                    case .oneShotPhs:
-                        scrollView.scrollTo(Field.oneShotPhs)
-                    case nil:
-                        scrollView.scrollTo(Field.oneShotPhs)
-                    }
-                }
-            })
-        }
-        ZStack {
-            RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-                .foregroundStyle(Color.blue)
-                .frame(height: 60)
-            
-            NavigationLink(destination: WeightBalancingView(vibData: vibData)) {
+            Section("0-Shot") {
                 HStack {
-                    Spacer()
-                    Text("계산하기")
-                        .font(.title3)
-                        .padding()
-                        .foregroundStyle(Color.white)
-                        .bold()
-                    Spacer()
+                    Text("진폭 :")
+                    TextField("진폭", text: $vibFirst)
+                        .keyboardType(.decimalPad)
                 }
-                .backgroundStyle(Color.blue)
+                
+                HStack {
+                    Text("위상 :")
+                    TextField("위상", text: $phsFirst)
+                        .keyboardType(.decimalPad)
+                }
+            }
+            
+            Section("웨이트 부착 위치") {
+                HStack {
+                    Text("무게 :")
+                    TextField("웨이트 무게", text: $weightGram)
+                        .keyboardType(.decimalPad)
+                }
+                
+                HStack{
+                    Text("각도 :")
+                    TextField("웨이트 부착 각도", text: $weightPhase)
+                        .keyboardType(.decimalPad)
+                }
+            }
+            
+            Section("1-Shot") {
+                HStack{
+                    Text("진폭 :")
+                    TextField("진폭", text: $vibSecond)
+                        .keyboardType(.decimalPad)
+                }
+                
+                
+                HStack {
+                    Text("위상 :")
+                    TextField("위상", text: $phsSecond)
+                        .keyboardType(.decimalPad)
+                }
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
         
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Button("Cancel") {
-                    focusedField = nil
-                }
-                
-                Spacer()
-                
-                Button(focusedField == .oneShotPhs ? "Done" : "Next") {
-                    switch focusedField {
-                    case .dataName:
-                        focusedField = .zeroShotAmp
-                    case .zeroShotAmp:
-                        focusedField = .zeroShotPhs
-                    case .zeroShotPhs:
-                        focusedField = .weightGram
-                    case .weightGram:
-                        focusedField = .weightPhase
-                    case .weightPhase:
-                        focusedField = .oneShotAmp
-                    case .oneShotAmp:
-                        focusedField = .oneShotPhs
-                    case .oneShotPhs:
-                        focusedField = nil
-                    default:
-                        focusedField = nil
-                    }
-                }
-            }
-        }
+//        ZStack {
+//            RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+//                .foregroundStyle(Color.blue)
+//                .frame(height: 60)
+//                .padding()
+//            
+//            NavigationLink(destination: WeightBalancingView(vibData: vibData)) {
+//                HStack {
+//                    Spacer()
+//                    Text("계산하기")
+//                        .font(.title3)
+//                        .padding()
+//                        .foregroundStyle(Color.white)
+//                        .bold()
+//                    Spacer()
+//                }
+//                .backgroundStyle(Color.blue)
+//            }
+//        }
+//        .toolbar {
+//            ToolbarItemGroup(placement: .keyboard) {
+//                Button("Cancel") {
+//                    focusedField = nil
+//                }
+//                
+//                Spacer()
+//                
+//                Button(focusedField == .oneShotPhs ? "Done" : "Next") {
+//                    switch focusedField {
+//                    case .dataName:
+//                        focusedField = .zeroShotAmp
+//                    case .zeroShotAmp:
+//                        focusedField = .zeroShotPhs
+//                    case .zeroShotPhs:
+//                        focusedField = .weightGram
+//                    case .weightGram:
+//                        focusedField = .weightPhase
+//                    case .weightPhase:
+//                        focusedField = .oneShotAmp
+//                    case .oneShotAmp:
+//                        focusedField = .oneShotPhs
+//                    case .oneShotPhs:
+//                        focusedField = nil
+//                    default:
+//                        focusedField = nil
+//                    }
+//                }
+//            }
+//        }
     }
 }
 
+
 #Preview {
-    DataInputView(vibData: VibData(dataName: "FDF"))
+    DataInputView()
 }
